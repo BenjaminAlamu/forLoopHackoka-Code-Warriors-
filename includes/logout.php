@@ -7,10 +7,11 @@
 <?php
 
 
-$_SESSION['user_fullname'] = null;
+$_SESSION['user_id'] = null;
 
+session_destroy();
 
-header(".php");
+header("Location: ../login.php");
 
 
 ?>

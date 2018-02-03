@@ -6,11 +6,15 @@
 
 
 <?php ob_start(); ?>
-<?php session_start(); ?>
+<?php session_start(); 
+    $_SESSION['user_id'] = "";
+?>
 
 <?php include "includes/functions.php"; ?>
 
 <?php include "includes/db.php"; ?>
+
+<?php require "PHP/Car.php"; ?>
 
 
 
@@ -18,8 +22,15 @@
 <?php
 if(isset($_POST['login'])) {;
 
+    $car = new Car();
 
     login_user($_POST['user_email'],$_POST['user_password'] );
+
+    $rows = $car->get_user_id($_POST['user_email']);
+    foreach($rows as $row){
+        $_SESSION['user_id'] = $row['user_id'];
+    }
+    
     header("Location: dashboard.php");
 
 } 

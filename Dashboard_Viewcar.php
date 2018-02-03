@@ -1,3 +1,24 @@
+<?php
+    session_start();
+   // var_dump($_SESSION['user_id2']);
+    //die();
+
+    if(!isset($_SESSION['user_id2'])){
+
+        header("Location: login.php");
+    }
+
+     require "PHP/Car.php";
+
+    $car = new Car();
+
+    $rows = $car->get_all_cars($_SESSION['user_id2']);
+    
+    foreach($rows as $row){
+        $_SESSION['user_id'] = $row['user_id'];
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,20 +132,21 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- row -->
+                <?php foreach($rows as $row) { ?>
                 <div class="row">
                     <div class="col-md-4 col-xs-12">
                         <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="IMG/car2.jpg">
+                            <div class="user-bg"> <?php echo $row['car_image'] ?>
                                 <div class="overlay-box">
                                     <div class="user-content">
-                                        <h4 class="text-white">AKD-064-EFG</h4>
-                                        <h5 class="text-white">Chasis Number</h5> </div>
+                                        <h4 class="text-white"><?php echo $row['car_plate_no'] ?></h4>
+                                        <h5 class="text-white"><?php echo $row['car_chassis'] ?></h5> </div>
                                 </div>
                             </div>
                             <div class="user-btm-box">
                                 <div class="col-md-12 col-sm-12 text-center">
                                     <p class="text-purple"><i class="ti-facebook"></i></p>
-                                    <h1>Range Rover</h1> </div>
+                                    <h1><?php echo $row['car_name'] ?></h1> </div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
                                             <button class="btn btn-success">Edit</button>
@@ -137,54 +159,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="IMG/car1.jpeg">
-                                <div class="overlay-box">
-                                    <div class="user-content">
-                                        <h4 class="text-white">IKJ-939-DBS</h4>
-                                        <h5 class="text-white">Chasis Number</h5> </div>
-                                </div>
-                            </div>
-                            <div class="user-btm-box">
-                                <div class="col-md-12 col-sm-12 text-center">
-                                    <p class="text-purple"><i class="ti-facebook"></i></p>
-                                    <h1>BMW Formatic</h1> </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-success">Edit</button>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-success">Delete</button>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="IMG/car2.jpg">
-                                <div class="overlay-box">
-                                    <div class="user-content">
-                                        <h4 class="text-white">RSU-728-GDH</h4>
-                                        <h5 class="text-white"></h5> </div>
-                                </div>
-                            </div>
-                            <div class="user-btm-box">
-                                <div class="col-md-12 col-sm-12 text-center">
-                                    <p class="text-purple"><i class="ti-facebook"></i></p>
-                                    <h1>Audi A6</h1> </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-success">Edit</button>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-success">Delete</button>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
+                <?php } ?>
+                    
                 </div>
                
             </div>

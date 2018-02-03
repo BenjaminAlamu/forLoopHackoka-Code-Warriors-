@@ -1,4 +1,12 @@
 `<?php
+    session_start();
+    //var_dump($_SESSION['user_id2']);
+    //die();
+
+    if(!isset($_SESSION['user_id2'])){
+
+        header("Location: login.php");
+    }
 
     require "PHP/Car.php";
 
@@ -8,7 +16,7 @@
 
 
         $memberData = array();
-        $memberData['id'] = 2;
+        $memberData['id'] = $_SESSION['user_id2'];
 		$memberData['car_name'] = test_input($_POST["car_name"]);
         $memberData['car_brand'] = test_input($_POST["car_brand"]);
         $memberData['car_chassis'] = test_input($_POST["car_chassis"]);
@@ -18,7 +26,26 @@
         //validating and saving image path
         
 
-        $memberData['car_path'] = $path;
+        
+
+            $rand = rand(1, 100000);
+
+            $upload_dir = "uploads/";
+			$upload_file = $upload_dir  ."/". basename($_FILES["car_image"]["name"]);
+			$img_type = strtolower(pathinfo($upload_file, PATHINFO_EXTENSION));
+			$newName = $upload_dir ."/". $rand."." . $img_type;
+            $uploadOk = 1;
+            $memberData['car_path'] = $_FILES["car_image"]["name"];
+
+			try{
+				//$checkImg = getimagesize($_FILES["car_image"]["tmp_name"]);
+			}
+			catch(PDOException $e) {
+				//echo "invalid image". $e -> getMessage();
+            }
+            
+    
+
 
         $error = [
             'car_name'=> '',
@@ -56,25 +83,55 @@
 
             $error['car_status'] = '<b class="text-danger">Car status Cannot be empty</b>';
         }
+        
+       /* else if($checkImg == false) {
+				$error['car_image'] = "Please upload an actual image";
+				$uploadOk = 0;
+			}*/
+			
+			else if($_FILES["car_image"]["size"] > 500000) {
+				$error['car_image'] = "File size must be less than 500kb";
+				$uploadOk = 0;
+			}
+
+			else if(($img_type != "jpg") && ($img_type != "png") && ($img_type != "jpeg") && ($img_type != "gif")) {
+				$error['car_image'] = "Only jpg, jpeg and png files are allowed";
+				$uploadOk = 0;
+			}
 
         else{
 
-            $resp = $car->create($memberData);
-            var_dump($resp);
-            die();
+            if($uploadOk == 1){
+                 
+               // if(move_uploaded_file($_FILES["car_name"]["tmp_name"], $upload_file)) {
+            
+				//    if( rename($upload_file, $newName)){
+                    
+						   
+                        $resp = $car->create($memberData);
 
-            if(is_string($resp)){
-                $error['car_chassis'] = '<b class="text-danger">Invalid Chassis Number</b>';
-                $error['car_plate_no'] = '<b class="text-danger">Invalid Plate Number</b>';
-            }
-            else if(is_bool($resp) && $resp == True) {
+    
+                        if(is_string($resp)){
+                            $error['car_chassis'] = '<b class="text-danger">Invalid Chassis Number</b>';
+                            $error['car_plate_no'] = '<b class="text-danger">Invalid Plate Number</b>';
+                        }
+                        else if(is_bool($resp) && $resp == True) {
 
-                echo('interesting');
-            }
-            else{
-                echo('waoh');
-                //header("location: register_car.php");
-            }		
+                            header("location: Dashboard.php");
+                        }
+                        else{
+                            
+                           header("refresh:0");
+                        }
+                /*    }
+                    else {
+                        $error['car_image'] = "sorry an error occured in uploading your file ";
+                    }
+                }
+                else {
+                        $error['car_image'] = "sorry an error occured in uploading your file ";
+                    }*/
+            }	
             
         }
 

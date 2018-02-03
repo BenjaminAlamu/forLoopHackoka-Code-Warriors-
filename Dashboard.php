@@ -5,36 +5,27 @@
     ob_start();
     include "includes/db.php";
     include "includes/functions.php";
+    require "PHP/Car.php";
     session_start();
 
 ?>
 
 <?php 
+    //var_dump($_SESSION['user_id']);
+    //die();
+    session_start();
 
-    if(isset($_SESSION['user_id'])){
+    if(!isset($_SESSION['user_id'])){
 
-        
-
-    $_SESSION['user_id'];
-
-
-        
-        $query = "SELECT * FROM users WHERE user_id = '{$user_id}' ";
-
-        $select_user_profile_query = mysqli_query($connection, $query);
-
-        while($row = mysqli_fetch_array($select_user_profile_query)) {
-
-            $user_id = $row['user_id'];
-            $user_fullname = $row['user_fullname'];
-            $user_email = $row['user_email'];
-            $user_password = $row['user_password'];
-            $user_phone_no = $row['user_phone_no'];
-
-
-        }
+        header("Location: login.php");
     }
+    else{
 
+    
+
+    $_SESSION['user_id2'] = $_SESSION['user_id'];
+    
+    }
 
 
 ?>

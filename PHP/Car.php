@@ -23,16 +23,19 @@
         }
 
         function create($data){
-            $data_returned = $this->validate($data);
+           /* $data_returned = $this->validate($data);
 
-            if(is_array($data_returned)){
+            var_dump($data_returned);
+            die();
+
+            if(is_array($data_returned)){*/
 
                 try{
-                    $this->database->query('INSERT INTO car_details (car_id, owner_id, car_name, car_brand, car_chassis, car_plate_no, car_image, car_status)VALUES (null, :owner_id, :carName, :color, :chasis, :plate_no, :imagePath, :status)');
+                    $this->database->query('INSERT INTO car_details (car_id, owner_id, car_name, car_brand, car_chassis, car_plate_no, car_image, car_status)VALUES (null, :owner_id, :carName, :carBrand, :chasis, :plate_no, :imagePath, :status)');
 
                     $this->database->bind(':owner_id', $data['id']);
-                    $this->database->bind(':carName', $data['brand']);
-                    $this->database->bind(':color',$data['car_brand']);
+                    $this->database->bind(':carName', $data['car_name']);
+                    $this->database->bind(':carBrand',$data['car_brand']);
                     $this->database->bind(':chasis',$data['car_chassis']);
                     $this->database->bind(':plate_no',$data['car_plate_no']);
                     $this->database->bind(':imagePath',$data['car_path']);
@@ -46,12 +49,10 @@
                     }
                 }catch(PDOException $e){
                     
-                    //echo 'Error Occured. '.$e->getMessage();
+                echo 'Error Occured. '.$e->getMessage();
                 }
-            }
-            else{
-                return $data_returned;
-            }
+            
+            
         }
 
 
@@ -60,6 +61,9 @@
             $plateNumber = $data['car_plate_no'];
 
             $mvrd = new Mvrd($plateNumber);
+
+            var_dump($mvrd->getData());
+            die();
 
             if($mvrd->getData() != null){
                 if(/*($mvrd->getData()['ChasisNumber'] == $data['car_chassis']) &&*/ ($mvrd->getData()['PlateNumber'] == $data['car_plate_no'])){
@@ -116,6 +120,25 @@
                     //echo 'Error Occured. '.$e->getMessage();
             }
 
+        }
+
+        function get_user_id($user_email){
+            $this->database->query('SELECT * FROM users WHERE user_email = :email');
+            $this->database->bind(':email', $user_email);
+            $rows = $this->database->resultset();
+            
+            //var_dump($rows);
+            return $rows;
+        }
+
+        function get_all_cars($user_id){
+            $this->database->query('SELECT * FROM car_details WHERE owner_id = :id');
+            $this->database->bind(':id', $user_id);
+            $rows = $this->database->resultset();
+            
+            //var_dump($rows);
+            //die();
+            return $rows;
         }
     }
 
