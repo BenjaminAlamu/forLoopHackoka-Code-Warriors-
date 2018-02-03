@@ -6,9 +6,7 @@
 
     $rows = $car->get_car($_SESSION['car_id']);
     
-    foreach($rows as $row){
-        
-    }
+
 ?>
 
 <!DOCTYPE html>
