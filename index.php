@@ -81,15 +81,15 @@
     </div>
     <div class="modal-body" id="l-flex-body">
        
-        <div class="l-flex-items">
+        <a href="login.php"><div class="l-flex-items">
         <img src="IMG/img_avatar2.png" width="100" height="100" class="reg">
         <span class="l-reg">Log In</span>
-        </div>
-        <div class="l-flex-items l-flex-item2 pull-right">
+        </div></a>
+         <a href="registration.php"><div class="l-flex-items l-flex-item2 pull-right">
                 <img src="IMG/img_avatar5.png" width="100" height="100" class="reg">
-                <span class="l-reg">Sign Up</span>
+               <span class="l-reg">Sign Up</span>
                 </div>
-        </div>
+        </div></a>
     </div>
   
 </div>
