@@ -117,7 +117,7 @@
                                             <div class="form-group">
                                                     <label class="col-md-12">Car Image</label>
                                                     <div class="col-md-12">
-                                                        <input type="file" > </div>
+                                                        <input type="file" name="car_image"> </div>
                                                 </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Car Name</label>
@@ -144,15 +144,15 @@
                                                 <label class="col-md-12">Car Status</label>
                                                 <div class="col-md-12">
                                                         <label class="col-md-12">In Use</label>
-                                                    <input type="checkbox" name="car_status" class=""> 
+                                                    <input type="radio" name="car_status" value="In use" class=""> 
                                                 </div>
                                                 <div class="col-md-12">
                                                         <label class="col-md-12">Availabe for Sale</label>
-                                                    <input type="checkbox" class=""> 
+                                                    <input type="radio" name="car_status" value="Available For Sale" class=""> 
                                                 </div>
                                                 <div class="col-md-12">
                                                         <label class="col-md-12">Stolen</label>
-                                                    <input type="checkbox" class=""> 
+                                                    <input type="radio" name="car_status" value="Stolen" class=""> 
                                                 </div>
                                             </div>
                                        
