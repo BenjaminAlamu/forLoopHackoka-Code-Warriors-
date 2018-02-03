@@ -1,3 +1,14 @@
+
+<?php
+
+    include "includes/db.php";
+    include "includes/functions.php";
+    include "includes/sessions.php";
+
+?>
+
+
+
 <html>
 
 <head>
@@ -9,8 +20,7 @@
 
 <?php
 
-include "includes/db.php";
-include "includes/functions.php";
+
 
 
 
@@ -107,11 +117,11 @@ if(strlen($user_password) < 6) {
 ?>
 
 <?php
-if(isset($_POST['register'])) {;
+if(isset($_POST['register'])) {
 
 
     
-    header("Location: login.php");
+    header("Location: dashboard.php");
 
 } 
 
@@ -132,7 +142,7 @@ if(isset($_POST['register'])) {;
                     <a href="index.html">Home</a></li>
 
                 <li>
-                    <a href="login.html">Login</a></li>
+                    <a href="login.php">Login</a></li>
                 <li>
                     <a href="aboutus.html">About Us</a></li>
             </ul>
