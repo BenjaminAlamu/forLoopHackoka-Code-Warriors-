@@ -2,14 +2,15 @@
 <html>
     <head>
         <title>Home</title>
-        <link rel="stylesheet" href="CSS/bootstrap.min.css">
-        <link rel="stylesheet" href="CSS/font-awesome.min.css">
-        <link rel="stylesheet" href="CSS/owl.carousel.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+       <link rel="stylesheet" href="CSS/owl.carousel.css">
         <link rel="stylesheet" href="CSS/animate.css">
         <link rel="stylesheet" href="CSS/main.css">
          <link rel="stylesheet" href="CSS/text.css">
         <link rel="stylesheet" href="CSS/responsive.css">
-        <link rel="stylesheet" href="CSS/hover.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" id="theme" rel="stylesheet">
     </head>
     <body id="body">
           	<div id="preloader">
@@ -28,7 +29,7 @@
 	                   
 	                </button>
 	                <a class="navbar-brand" href="#">
-                       <img src="IMG/CarSecureLogo.png" width="150" height="30">
+                       <img src="IMG/CarSecureLogo.png" alt="logo">
 	                </a>
 	            </div>
 	            <nav class="collapse navbar-collapse" id="navbar">
@@ -46,20 +47,23 @@
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Modal Header</h2>
+  <div class="modal-content" id="m-content">
+    <div class="modal-header" id="m-head">
+            <span class="close">&times;</span>
     </div>
-    <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
+    <div class="modal-body" id="l-flex-body">
+       
+        <div class="l-flex-items">
+        <img src="IMG/img_avatar2.png" width="100" height="100" class="reg">
+        <span class="l-reg">Log In</span>
+        </div>
+        <div class="l-flex-items l-flex-item2 pull-right">
+                <img src="IMG/img_avatar5.png" width="100" height="100" class="reg">
+                <span class="l-reg">Sign Up</span>
+                </div>
+        </div>
     </div>
-    <div class="modal-footer">
-      <h3>Modal Footer</h3>
-    </div>
-  </div>
-
+  
 </div>
 
 	    <section id="hero-area">
@@ -112,7 +116,7 @@
         </div>-->
         
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
-         <script src="js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script src="js/jquery.lwtCountdown-1.0.js"></script>
