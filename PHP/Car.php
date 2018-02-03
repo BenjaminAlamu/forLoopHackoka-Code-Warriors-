@@ -1,14 +1,16 @@
 <?php
-    require 'php/Database.php';
-    require_once 'vendor/autoload.php';
+    require 'Database.php';
+    //require_once 'autoload.php';
 
     class Car{
 
-        use Unicodeveloper\Mvrd\Mvrd;
+        //use Unicodeveloper\Mvrd\Mvrd;
 
-        function __construct(){
+        private $database;
+
+        public function __construct(){
             $host = 'localhost';
-            $db = 'multiverse';
+            $db = 'cars';
             $username = 'root';
             $password = 'blessyn22*';
 
@@ -39,7 +41,7 @@
                     }
                 }catch(PDOException $e){
                     
-                    echo 'Error Occured. '.$e->getMessage();
+                    //echo 'Error Occured. '.$e->getMessage();
                 }
             }
             else{
@@ -67,15 +69,47 @@
             }
         }
 
-        function read(){
-
+        function read($car_chassis){
+            $this->database->query('SELECT * FROM car_details WHERE car_chassis = :chassis');
+            $this->database->bind(':chassis', $car_chassis);
+            $rows = $this->database->resultset();
+            
+            //var_dump($rows);
+            return $rows;
         }
 
-        function update(){
-
+        function update($user_id, $car_id, $car_status, $car_color){
+            try{
+                $this->database->query("UPDATE car_details SET car_status = '$car_status', car_color = '$car_color' WHERE owner_id = $user_id");
+                
+                if($this->database->execute()){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }catch(PDOException $e){
+                    
+                    //echo 'Error Occured. '.$e->getMessage();
+            }
         }
 
-        function delete(){
+        function delete($user_id, $car_id){
+            try{
+                $this->database->query("DELETE FROM car_details WHERE id = :id");
+
+                $this->database->bind(':id',$user_id);
+
+                    if($this->database->execute()){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+            }catch(PDOException $e){
+                    
+                    //echo 'Error Occured. '.$e->getMessage();
+            }
 
         }
     }

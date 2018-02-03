@@ -7,7 +7,7 @@
     if (isset($_POST['create'])){
 
         $memberData = array();
-        $memberData = SESSION([user_id]);
+        $memberData = $_SESSION['user_id'];
 		$memberData['car_name'] = test_input($_POST["car_name"]);
         $memberData['car_color'] = test_input($_POST["car_color"]);
         $memberData['car_chassis'] = test_input($_POST["car_chassis"]);
@@ -31,38 +31,31 @@
 
         // This Part Checks for the length of the Password
 
-        if(strlen($user_password) < 6) {
+        if($car_name == '') {
 
-
-            $error['user_password'] = '<b class="text-danger">Password needs to be longer</b>';
+            $error['car_name'] = '<b class="text-danger">Car Name Cannot be empty</b>';
         }
 
 
-        if($user_fullname =='') {
+        if($car_color == '') {
 
+            $error['car_color'] = '<b class="text-danger">Car Color Cannot be empty</b>';
+        }
 
-            $error['user_fullname'] = '<b class="text-danger">Name cannot be empty</b>';
+        if($car_chassis == '') {
+
+            $error['car_chassis'] = '<b class="text-danger">Car Chassis Number Cannot be empty</b>';
         }
 
 
+        if($car_plate_no == '') {
 
-        if($user_email =='') {
-
-
-            $error['user_email'] = 'Email cannot be empty';
+            $error['car_plate_no'] = '<b class="text-danger">Car Plate Number Cannot be empty</b>';
         }
 
+        if($car_status == '') {
 
-        if(email_exists($email)) {
-
-
-            $error['user_email'] = 'Email already exists, Please login</a>';
-        }
-
-        if($user_password == '') {
-
-
-            $error['user_password'] = 'Password cannot be empty';
+            $error['car_status'] = '<b class="text-danger">Car status Cannot be empty</b>';
         }
 
 
@@ -78,14 +71,85 @@
 
         if(empty($error)){
 
-            register_user($user_fullname, $user_email, $user_password, $user_phone_no);
+            $resp = $car->create($memberData);
 
-            login_user($user_email, $user_password);
+            if(is_string($resp)){
+                $error['car_chassis'] = '<b class="text-danger">Invalid Chassis Number</b>';
+                $error['car_plate_no'] = '<b class="text-danger">Invalid Plate Number</b>';
+            }
+            else if(is_bool($resp) && $resp == True) {
+
+                header("location: dashboard.php");
+            }
+            else{
+                header("location: register_car.php");
+            }		
             
         }
 
 
-    } 
+    }
+
+    if (isset($_POST['update'])){
+
+        $user_id = $_SESSION['user_id'];
+        $car_status = test_input($_POST["car_status"]);
+        $car_color = test_input($_POST["car_color"]);
+
+        $error = [
+            'car_status'=> '',
+            'car_color'=> ''
+        ];
+
+        if($car_color == '') {
+
+            $error['car_color'] = '<b class="text-danger">Car Color Cannot be empty</b>';
+        }
+        if($car_status == '') {
+
+            $error['car_status'] = '<b class="text-danger">Car status Cannot be empty</b>';
+        }
+
+
+        foreach ($error as $key => $value) {
+
+            if (empty($value)){
+    
+                unset($error[$key]);  
+            
+            }
+
+        }//for loop
+
+        if(empty($error)){
+
+            $resp = $car->update($user_id, $car_status, $car_color);
+
+            if(is_bool($resp) && $resp == True) {
+
+                header("location: dashboard.php");
+            }
+            else{
+                header("location: register_car.php");
+            }		
+            
+        }
+
+    }
+
+
+    if (isset($_POST['delete'])){
+
+        $resp = $car->delete($user_id);
+
+        if(is_bool($resp) && $resp == True) {
+
+            header("location: dashboard.php");
+        }
+        else{
+            header("location: register_car.php");
+        }		
+    }
 
     function test_input($data) {
 
