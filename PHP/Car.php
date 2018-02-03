@@ -1,10 +1,10 @@
 <?php
     require 'Database.php';
-    //require_once 'autoload.php';
+    require_once 'vendor/autoload.php';
 
     class Car{
 
-        //use Unicodeveloper\Mvrd\Mvrd;
+        use Unicodeveloper\Mvrd\Mvrd;
 
         private $database;
 
