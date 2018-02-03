@@ -5,6 +5,9 @@
 
 
 
+<?php ob_start(); ?>
+<?php session_start(); ?>
+
 <?php include "includes/functions.php"; ?>
 
 <?php include "includes/db.php"; ?>
@@ -17,7 +20,7 @@ if(isset($_POST['login'])) {;
 
 
     login_user($_POST['user_email'],$_POST['user_password'] );
-    header("Location: registration.php");
+    header("Location: dashboard.php");
 
 } 
 
