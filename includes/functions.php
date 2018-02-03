@@ -30,6 +30,20 @@ function register_user($user_fullname, $user_email, $user_password, $user_phone_
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function confirmQuery($result) {
 
     global $connection;

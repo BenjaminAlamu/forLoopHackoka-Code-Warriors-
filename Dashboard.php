@@ -1,3 +1,54 @@
+
+
+<?php
+
+    ob_start();
+    include "includes/db.php";
+    include "includes/functions.php";
+    session_start();
+
+?>
+
+<?php 
+
+    if(isset($_SESSION['user_id'])){
+
+        
+
+    $_SESSION['user_id'];
+
+
+        
+        $query = "SELECT * FROM users WHERE user_id = '{$user_id}' ";
+
+        $select_user_profile_query = mysqli_query($connection, $query);
+
+        while($row = mysqli_fetch_array($select_user_profile_query)) {
+
+            $user_id = $row['user_id'];
+            $user_fullname = $row['user_fullname'];
+            $user_email = $row['user_email'];
+            $user_password = $row['user_password'];
+            $user_phone_no = $row['user_phone_no'];
+
+
+        }
+    }
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,12 +103,33 @@
                          </span> </a>
                 </div>
                 <!-- /Logo -->
+
+
+
+                
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li>
-                        <a class="Dashboard-profile-pic" href="#"><b class="hidden-xs profile-name">Mayorwa Daniel</b></a>
+                        <a class="Dashboard-profile-pic" href="#" value=""><b class="hidden-xs profile-name">
+                            
+                            
+                            
+                        <?php
+
+                        if(isset($_SESSION['user_id'])) {
+
+                        echo $_SESSION['user_fullname'];
+                    }
+                  
+                        
+                        ?>
+                    
+                  
+                            </b></a>
                     </li>
                 </ul>
             </div>
+        
+                
             <!-- /.navbar-header -->
             <!-- /.navbar-top-links -->
             <!-- /.navbar-static-side -->
@@ -90,6 +162,8 @@
                     
 
                 </ul>
+
+   
                
             </div>
             
