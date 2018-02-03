@@ -1,3 +1,31 @@
+<?php 
+    session_start();
+
+    $_SESSION['car_id'] = "";
+    if (isset($_POST['search'])){
+
+        $_SESSION['car_id'] = test_input($_POST['car_chassis']);
+
+        header("Location: format.php");
+    }
+
+    function test_input($data) {
+
+		if(empty($data)){
+			global $error;
+			$error = "Field is required";
+		}
+
+		else{
+
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		}
+		
+		return $data;
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,17 +104,17 @@
 	                        <div class="wow fadeInDown" data-wow-delay="0.3s">
 	                        	  <div id="l_up" class="js-location-search location-search location-search-main-page  location_city_area">
     <div class="location-search-inner" id="l-ji">
-        <form name="" method="get" action="/location-suggestions" role="form" class="form-vertical" novalidate="novalidate" autocomplete="off">
+<form action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"  method = "post" role="form" class="form-vertical" novalidate="novalidate" autocomplete="off">
 
-                    <div class="area" id="l_area">
+    <div class="area" id="l_area">
     <label for="area" class="required">Select for Chassis Number</label>
-    <input type="text" id="l-border" name="area" required="required" data-prefill="location.areaName" class="form-control" placeholder="Search for Chassis Number" />
+    <input type="text" id="l-border" name="car_chassis" required="required" data-prefill="location.areaName" class="form-control" placeholder="Search for Chassis Number" />
     <span id="area-not-selected-error" class="help-inline">
         
     </span>
 </div>
   <div class="find-food" id="l_areaa">
-    <button type="submit" id="button" name="button" class="btn btn-primary btn-block">Show results</button>
+    <input type="submit" id="button" name="search" value="SHOW RESULTS" class="btn btn-primary btn-block">
 </div>
         <input type="hidden" id="area_id" name="area_id" data-prefill="location.areaId" /><input type="hidden" id="pickup" name="pickup" /><input type="hidden" id="sort" name="sort" /><input type="hidden" id="tracking_id" name="tracking_id" data-prefill="location.tracking_id" /></form>
     </div>

@@ -154,59 +154,8 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                 <?php } ?>
                     
-=======
-                    <div class="col-md-4 col-xs-12">
-                        <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="IMG/car1.jpeg">
-                                <div class="overlay-box">
-                                    <div class="user-content">
-                                        <h4 class="text-white">IKJ-939-DBS</h4>
-                                        <h5 class="text-white">Chasis Number</h5> </div>
-                                </div>
-                            </div>
-                            <div class="user-btm-box">
-                                <div class="col-md-12 col-sm-12 text-center">
-                                    <p class="text-purple"><i class="ti-facebook"></i></p>
-                                    <h1>BMW Formatic</h1> </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-success" style="background-color:#d22144; border-color:#d22144">Edit</button>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-success" style="background-color:#2f323e; border-color:#2f323e">Delete</button>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="white-box">
-                            <div class="user-bg"> <img width="100%" alt="user" src="IMG/car2.jpg">
-                                <div class="overlay-box">
-                                    <div class="user-content">
-                                        <h4 class="text-white">RSU-728-GDH</h4>
-                                        <h5 class="text-white"></h5> </div>
-                                </div>
-                            </div>
-                            <div class="user-btm-box">
-                                <div class="col-md-12 col-sm-12 text-center">
-                                    <p class="text-purple"><i class="ti-facebook"></i></p>
-                                    <h1>Audi A6</h1> </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-success" style="background-color:#d22144; border-color:#d22144">Edit</button>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <button class="btn btn-success" style="background-color:#2f323e; border-color:#2f323e">Delete</button>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
->>>>>>> e3b50898709b2a720f0e524383e386f1cdd8a9c9
                 </div>
                
             </div>

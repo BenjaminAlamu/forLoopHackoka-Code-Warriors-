@@ -1,3 +1,16 @@
+<?php
+    session_start();
+
+     require "PHP/Car.php";
+    $car = new Car();
+
+    $rows = $car->get_car($_SESSION['car_id']);
+    
+    foreach($rows as $row){
+        
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -25,21 +38,22 @@
     </header>
 
     <div id="resultContent">
-
+        <?php if($rows == null){ ?>
         <div id="noCarFound">
             <h3 id="error">Car not found in database</h3>
         </div>
+        <?php } else{ foreach($rows as $row){ ?>
 
-        <div id="carFound">
+        <div id="carFound"> 
             <p>Congratutions, Car was found. Here are the details</p>
-            <img src="#" alt="Image of found car" id="resultCar">
-            <p>Car Brand: Honda</p>
-            <p>Plate Number : xxxxxxx</p>
-            <p>Chassis Number: xxxxxxx</p>
-            <p>Car Status: Stolen</p>
+            <?php echo $row['car_image'] ?>
+            <p>Car Brand: <?php echo $row['car_brand'] ?></p>
+            <p>Plate Number : <?php echo $row['car_plate_no'] ?></p>
+            <p>Chassis Number: <?php echo $row['car_chassis'] ?></p>
+            <p>Car Status: <?php echo $row['car_status'] ?></p>
 
         </div>
-
+        <?php } } ?>
     </div>
 
 

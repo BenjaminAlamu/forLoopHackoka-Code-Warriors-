@@ -140,6 +140,16 @@
             //die();
             return $rows;
         }
+
+         function get_car($car_id){
+            $this->database->query('SELECT * FROM car_details WHERE car_id = :id');
+            $this->database->bind(':id', $car_id);
+            $rows = $this->database->resultset();
+            
+            //var_dump($rows);
+            //die();
+            return $rows;
+        }
     }
 
 ?>
