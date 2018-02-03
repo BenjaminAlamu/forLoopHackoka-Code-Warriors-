@@ -115,6 +115,16 @@ input[type="text"] {
     height: 100px;
 }
 
+#resultContent {
+    background-color: #fff;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    margin: 5% auto;
+    min-height: 250px;
+}
+
 @media (min-width:320px) and (max-width: 801px) {
     /* smartphones, Android phones, landscape iPhone */
     header {
