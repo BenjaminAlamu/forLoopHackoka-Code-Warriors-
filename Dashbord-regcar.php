@@ -112,46 +112,42 @@
                                             <div class="form-group">
                                                     <label class="col-md-12">Car Image</label>
                                                     <div class="col-md-12">
-                                                        <input type="file" > </div>
+                                                        <input type="file" name="car_image"> </div>
                                                 </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Car Name</label>
                                             <div class="col-md-12">
-                                                <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line"> </div>
+                                                <input type="text" placeholder="Johnathan Doe" name="car_name" class="form-control form-control-line"> </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Car Brand</label>
                                             <div class="col-md-12">
-                                                <input type="text" placeholder="Audi A6" class="form-control form-control-line"> </div>
+                                                <input type="text" placeholder="Audi A6" class="form-control" name="car_brand" form-control-line"> </div>
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-md-12">Plate Number</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="WRT-123-DDJ" class="form-control form-control-line"> </div>
+                                                    <input type="text" placeholder="WRT-123-DDJ" name="car_plate_no" class="form-control form-control-line"> </div>
                                             </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Chasis Number</label>
                                             <div class="col-md-12">
-                                                <input type="text" placeholder="123456789" class="form-control form-control-line"> </div>
+                                                <input type="text" placeholder="123456789" ame="car_chassis" class="form-control form-control-line"> </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Phone No</label>
-                                            <div class="col-md-12">
-                                                <input type="text" placeholder="123 456 7890" class="form-control form-control-line"> </div>
-                                        </div>
+                    
                                         <div class="form-group">
                                                 <label class="col-md-12">Car Status</label>
                                                 <div class="col-md-12">
                                                         <label class="col-md-12">In Use</label>
-                                                    <input type="checkbox" class=""> 
+                                                    <input type="radio" name="car_status" value="In use" class=""> 
                                                 </div>
                                                 <div class="col-md-12">
                                                         <label class="col-md-12">Availabe for Sale</label>
-                                                    <input type="checkbox" class=""> 
+                                                    <input type="radio" name="car_status" value="Available For Sale" class=""> 
                                                 </div>
                                                 <div class="col-md-12">
                                                         <label class="col-md-12">Stolen</label>
-                                                    <input type="checkbox" class=""> 
+                                                    <input type="radio" name="car_status" value="Stolen" class=""> 
                                                 </div>
                                             </div>
                                        

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "swiftmailer/swiftmailer": "^5.4",
+        "unicodeveloper/mvrd": "1.0.*"
+    }
+}
