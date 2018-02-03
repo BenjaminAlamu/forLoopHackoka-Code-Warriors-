@@ -62,6 +62,9 @@ $(document).ready(function(){
             $('.l-lite').css('color','black').show();
         });
     });
+
+    
+
     $("#contact-form").validate({
         rules: {
             name: {

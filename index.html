@@ -34,18 +34,33 @@
 	            <nav class="collapse navbar-collapse" id="navbar">
 	                <ul class="nav navbar-nav navbar-right" id="top-nav">
 	                    <li><a href="#"> <i class="fa fa-info-circle"></i> About Us</a></li>
-	                  
-                          <li class="dropdown color">                            
-                            <a href="#" class="dropdown-toggle l_click" data-toggle="dropdown"><i class="fa fa-user l-lite"></i>  <span class="l-lite">Log in or Sign up <span class="caret opacity-none"></span></span></a>
-                              <ul class="dropdown-menu l_menu">
-                                  <li class="l_items" data-toggle="modal" data-target="#popupwindow1_1"><a href="#" class="k_pad">Sign Up</a></li>
-                                  <li class="hover1 l_items l-item2" data-toggle="modal" data-target="#popupwindow1_2"><a href="#" class="k_pad">Log In</a></li>
-                              </ul>
-                              </li>
+                        <!--<li class="dropdown shutter-out-horizontal b_pad buzz-out color">                            
+                            <a href="#" class="dropdown-toggle b_slidet b_items" data-toggle="modal" data-target="#popwindow"><i class="fa fa-user lk"></i>  Log In or Sign Up <span class="caret opacity-none"></span></a>
+                         </li>-->
+                         <li id="myBtn" class="color"><a href="#"><i class="fa fa-user lk"></i> Log In or Sign Up</a></li>
 	                </ul>
 	            </nav>
 	        </div>
 	    </div>
+<!-- The User Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+
+</div>
 
 	    <section id="hero-area">
 	        <div class="container">
@@ -76,16 +91,31 @@
 	                        </div>
 	                    </div>
 	                </div>
-	            
+	              
 	                </div>
 	            </div>
 	        </div>
 	    </section>
-          <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <!--<div class="modal fade" id="popwindow">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" data-dismiss="modal" class="close">&times</button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        
         <script src="js/vendor/jquery-1.10.2.min.js"></script>
+         <script src="js/bootstrap.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <script src="js/jquery.lwtCountdown-1.0.js"></script>
-        <script src="js/bootstrap.min.js"></script>
         <script src="js/owl.carousel.min.js"></script>
         <script src="js/jquery.validate.min.js"></script>
         <script src="js/jquery.form.js"></script>
@@ -94,5 +124,31 @@
         <script src="js/plugins.js"></script>
         <script src="js/wow.min.js"></script>
         <script src="js/main.js"></script>
+        <script>
+            var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+            </script>
     </body>
 </html>
