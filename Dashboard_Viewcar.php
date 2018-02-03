@@ -40,12 +40,7 @@
     <link href="CSS/style.css" rel="stylesheet">
     <!-- color CSS -->
     <link href="CSS/default.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" id="theme" rel="stylesheet">
 </head>
 
 <body class="fix-header">
@@ -68,7 +63,7 @@
             <div class="navbar-header">
                 <div class="top-left-part">
                     <!-- Logo -->
-                    <a class="logo" href="Dashboard.html">
+                    <a class="logo" href="Dashboard.php">
                             <img src="IMG/CarSecureLogo.png" alt="home" class="dark-logo" /><!--This is light logo text--><img src="IMG/CarSecureLogo.png" alt="home" class="light-logo" />
                          </span> </a>
                 </div>
@@ -94,19 +89,19 @@
                 </div>
                 <ul class="nav" id="side-menu">
                     <li style="padding: 70px 0 0;">
-                        <a href="Dashboard.html" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
+                        <a href="Dashboard.php" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
                     <li>
                         <a href="#" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Profile</a>
                     </li>
                     <li>
-                        <a href="Dashbord-regcar.html" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Register Car</a>
+                        <a href="Dashboard-regcar.php" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Register Car</a>
                     </li>
                     <li>
-                            <a href="Dashboard_Viewcar.html" class="waves-effect"><i class="fa fa-binoculars fa-fw" aria-hidden="true"></i>View Cars</a>
+                            <a href="Dashboard_Viewcar.php" class="waves-effect"><i class="fa fa-binoculars fa-fw" aria-hidden="true"></i>View Cars</a>
                         </li>
                         <li>
-                            <a href="Dashboard_edit.html" class="waves-effect"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>Edit Car Status</a>
+                            <a href="Dashboard_edit.php" class="waves-effect"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i>Edit Car Status</a>
                         </li>
                 </ul>
             </div>
@@ -149,18 +144,69 @@
                                     <h1><?php echo $row['car_name'] ?></h1> </div>
                                     <div class="form-group">
                                         <div class="col-sm-6">
-                                            <button class="btn btn-success">Edit</button>
+                                            <button class="btn btn-success" style="background-color:#d22144; border-color:#d22144">Edit</button>
                                         </div>
                                         <div class="col-sm-6">
-                                            <button class="btn btn-success">Delete</button>
+                                            <button class="btn btn-success" style="background-color:#2f323e; border-color:#2f323e">Delete</button>
                                         </div>
                                     </div>
                                
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                 <?php } ?>
                     
+=======
+                    <div class="col-md-4 col-xs-12">
+                        <div class="white-box">
+                            <div class="user-bg"> <img width="100%" alt="user" src="IMG/car1.jpeg">
+                                <div class="overlay-box">
+                                    <div class="user-content">
+                                        <h4 class="text-white">IKJ-939-DBS</h4>
+                                        <h5 class="text-white">Chasis Number</h5> </div>
+                                </div>
+                            </div>
+                            <div class="user-btm-box">
+                                <div class="col-md-12 col-sm-12 text-center">
+                                    <p class="text-purple"><i class="ti-facebook"></i></p>
+                                    <h1>BMW Formatic</h1> </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-success" style="background-color:#d22144; border-color:#d22144">Edit</button>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-success" style="background-color:#2f323e; border-color:#2f323e">Delete</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="white-box">
+                            <div class="user-bg"> <img width="100%" alt="user" src="IMG/car2.jpg">
+                                <div class="overlay-box">
+                                    <div class="user-content">
+                                        <h4 class="text-white">RSU-728-GDH</h4>
+                                        <h5 class="text-white"></h5> </div>
+                                </div>
+                            </div>
+                            <div class="user-btm-box">
+                                <div class="col-md-12 col-sm-12 text-center">
+                                    <p class="text-purple"><i class="ti-facebook"></i></p>
+                                    <h1>Audi A6</h1> </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-success" style="background-color:#d22144; border-color:#d22144">Edit</button>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-success" style="background-color:#2f323e; border-color:#2f323e">Delete</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+>>>>>>> e3b50898709b2a720f0e524383e386f1cdd8a9c9
                 </div>
                
             </div>
