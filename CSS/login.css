@@ -1,86 +1,144 @@
 body,
-html {
-    font-family: "Lato";
-    margin: 0;
-    background-color: #ecf0f4;
-    ;
-}
-
-header {
-    width: 100%;
-    background-color: #2f323e;
-    color: white;
-    padding: 10px;
-}
-
-nav ul {
-    display: flex;
-    list-style-type: none;
-}
-
-nav ul li {
-    padding: 7.5px;
-    color: white;
-}
-
-a {
-    color: black;
-    text-decoration-line: none;
-    color: white;
-}
-
-#logo {
-    margin-right: 50%;
-    margin-left: 7%;
-}
-
-#register_form {
-    text-align: center;
-    background-color: white;
-    width: 40%;
-    margin: 5% auto;
-    min-height: 250px;
-}
-
-#form {
-    text-align: center;
-    background-color: white;
-    width: 40%;
-    margin: 7.5% auto;
-    min-height: 250px;
-}
-
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="text"] {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 1px solid black;
-    font-size: 14px;
-    height: auto;
-    margin: 10px auto;
-    padding: 15px;
-    width: 80%;
-    font-family: "Varela";
-}
-
-#submit_button {
-    padding: 20px;
-    color: #FFF;
-    background-color: #f33155;
-    font-size: 18px;
-    text-align: center;
-    font-style: normal;
-    border-radius: 5px;
-    width: 90%;
-    margin: 40px 20px 40px 20px;
-    border: 1px solid #f33155;
-    border-width: 1px 1px 3px;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-}
-
-#title {
-    padding-top: 20px;
+    html {
+        font-family: "Lato";
+        margin: 0;
+        background-color: #ecf0f4;
+        ;
+    }
+    
+    header {
+        width: 100%;
+        background-color: #2f323e;
+        color: white;
+        padding: 10px;
+    }
+    
+    nav ul {
+        display: flex;
+        list-style-type: none;
+    }
+    
+    nav ul li {
+        color: white;
+        padding: 10px;
+        display: inline;
+    }
+    
+    a {
+        color: black;
+        text-decoration-line: none;
+        color: white;
+    }
+    
+    #logo {
+        margin-right: 55%;
+        margin-left: 5%;
+    }
+    
+    #register_form {
+        text-align: center;
+        background-color: white;
+        width: 40%;
+        margin: 5% auto;
+        min-height: 250px;
+        border-radius: 15px;
+        /* box-shadow: 5px 10px #888888; */
+    }
+    
+    #form {
+        text-align: center;
+        background-color: white;
+        width: 40%;
+        margin: 7.5% auto;
+        min-height: 250px;
+    }
+    
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="text"] {
+        border: 0;
+        outline: 0;
+        background: transparent;
+        border-bottom: 1px solid black;
+        font-size: 14px;
+        height: auto;
+        margin: 10px auto;
+        padding: 15px;
+        width: 80%;
+        font-family: "Varela";
+    }
+    
+    #submit_button {
+        padding: 20px;
+        color: #FFF;
+        background-color: #f33155;
+        font-size: 18px;
+        text-align: center;
+        font-style: normal;
+        border-radius: 5px;
+        width: 90%;
+        margin: 40px 20px 40px 20px;
+        border: 1px solid #f33155;
+        border-width: 1px 1px 3px;
+        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    }
+    
+    #title {
+        padding-top: 20px;
+    }
+    
+    #content {
+        width: 60%;
+        text-align: center;
+        margin: 2.5% auto;
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .icon {
+        width: 75px;
+        height: 75px;
+    }
+    
+    #goals,
+    #mission,
+    #plan,
+    #services {
+        margin: 0 auto 30px;
+    }
+    
+    #missionIcon {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+    
+    @media (min-width:320px) and (max-width: 801px) {
+        /* smartphones, Android phones, landscape iPhone */
+        header {
+            width: 100%;
+        }
+        nav ul {
+            display: block;
+            padding: 20px;
+        }
+        nav {
+            text-align: center;
+        }
+        /* @media (min-width:600px) and (max-width: 801px) {
+                /* smartphones, Android phones, landscape iPhone */
+        header {
+            width: 100%;
+        }
+        nav ul {
+            display: block;
+            padding: 20px;
+        }
+        nav {
+            text-align: center;
+        }
+        */
+    }
 }
