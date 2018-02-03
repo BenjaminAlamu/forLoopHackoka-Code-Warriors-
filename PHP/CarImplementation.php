@@ -1,15 +1,15 @@
 <?php
 
-    require "PHP/Car.php";
+    require "Car.php";
 
     $car = new Car();
 
     if (isset($_POST['create'])){
 
         $memberData = array();
-        $memberData = $_SESSION['user_id'];
+        $memberData['id'] = $_SESSION['user_id'];
 		$memberData['car_name'] = test_input($_POST["car_name"]);
-        $memberData['car_color'] = test_input($_POST["car_color"]);
+        $memberData['car_brand'] = test_input($_POST["car_brand"]);
         $memberData['car_chassis'] = test_input($_POST["car_chassis"]);
         $memberData['car_plate_no'] = test_input($_POST["car_plate_no"]);
         $memberData['car_status'] = test_input($_POST["car_status"]);
@@ -21,7 +21,7 @@
 
         $error = [
             'car_name'=> '',
-            'car_color'=> '',
+            'car_brand'=> '',
             'car_chassis'=> '',
             'car_plate_no'=> '',
             'car_status'=> '',
@@ -39,7 +39,7 @@
 
         if($car_color == '') {
 
-            $error['car_color'] = '<b class="text-danger">Car Color Cannot be empty</b>';
+            $error['car_brand'] = '<b class="text-danger">Car Brand Cannot be empty</b>';
         }
 
         if($car_chassis == '') {
@@ -79,10 +79,11 @@
             }
             else if(is_bool($resp) && $resp == True) {
 
-                header("location: dashboard.php");
+                echo('interesting');
             }
             else{
-                header("location: register_car.php");
+                echo('waoh');
+                //header("location: register_car.php");
             }		
             
         }

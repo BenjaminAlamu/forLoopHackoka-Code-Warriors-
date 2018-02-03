@@ -1,3 +1,168 @@
+`<?php
+
+    require "PHP/Car.php";
+
+    $car = new Car();
+
+    if (isset($_POST['create'])){
+
+
+        $memberData = array();
+        $memberData['id'] = 2;
+		$memberData['car_name'] = test_input($_POST["car_name"]);
+        $memberData['car_brand'] = test_input($_POST["car_brand"]);
+        $memberData['car_chassis'] = test_input($_POST["car_chassis"]);
+        $memberData['car_plate_no'] = test_input($_POST["car_plate_no"]);
+        $memberData['car_status'] = test_input($_POST["car_status"]);
+
+        //validating and saving image path
+        
+
+        $memberData['car_path'] = $path;
+
+        $error = [
+            'car_name'=> '',
+            'car_brand'=> '',
+            'car_chassis'=> '',
+            'car_plate_no'=> '',
+            'car_status'=> '',
+            'car_image'=> ''
+        ];
+
+
+        if($memberData['car_name'] == '') {
+
+            $error['car_name'] = '<b class="text-danger">Car Name Cannot be empty</b>';
+        }
+
+
+        else if($memberData['car_brand'] == '') {
+
+            $error['car_brand'] = '<b class="text-danger">Car Brand Cannot be empty</b>';
+        }
+
+        else if($memberData['car_chassis'] == '') {
+
+            $error['car_chassis'] = '<b class="text-danger">Car Chassis Number Cannot be empty</b>';
+        }
+
+
+        else if($memberData['car_plate_no'] == '') {
+
+            $error['car_plate_no'] = '<b class="text-danger">Car Plate Number Cannot be empty</b>';
+        }
+
+        else if($memberData['car_status'] == '') {
+
+            $error['car_status'] = '<b class="text-danger">Car status Cannot be empty</b>';
+        }
+
+        else{
+
+            $resp = $car->create($memberData);
+            var_dump($resp);
+            die();
+
+            if(is_string($resp)){
+                $error['car_chassis'] = '<b class="text-danger">Invalid Chassis Number</b>';
+                $error['car_plate_no'] = '<b class="text-danger">Invalid Plate Number</b>';
+            }
+            else if(is_bool($resp) && $resp == True) {
+
+                echo('interesting');
+            }
+            else{
+                echo('waoh');
+                //header("location: register_car.php");
+            }		
+            
+        }
+
+
+    }
+
+    if (isset($_POST['update'])){
+
+        $user_id = $_SESSION['user_id'];
+        $car_status = test_input($_POST["car_status"]);
+        $car_color = test_input($_POST["car_color"]);
+
+        $error = [
+            'car_status'=> '',
+            'car_color'=> ''
+        ];
+
+        if($car_color == '') {
+
+            $error['car_color'] = '<b class="text-danger">Car Color Cannot be empty</b>';
+        }
+        if($car_status == '') {
+
+            $error['car_status'] = '<b class="text-danger">Car status Cannot be empty</b>';
+        }
+
+
+        foreach ($error as $key => $value) {
+
+            if (empty($value)){
+    
+                unset($error[$key]);  
+            
+            }
+
+        }//for loop
+
+        if(empty($error)){
+
+            $resp = $car->update($user_id, $car_status, $car_color);
+
+            if(is_bool($resp) && $resp == True) {
+
+                header("location: dashboard.php");
+            }
+            else{
+                header("location: register_car.php");
+            }		
+            
+        }
+
+    }
+
+
+    if (isset($_POST['delete'])){
+
+        $resp = $car->delete($user_id);
+
+        if(is_bool($resp) && $resp == True) {
+
+            header("location: dashboard.php");
+        }
+        else{
+            header("location: register_car.php");
+        }		
+    }
+
+    function test_input($data) {
+
+		if(empty($data)){
+			global $error;
+			$error = "Field is required";
+		}
+
+		else{
+
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		}
+		
+		return $data;
+    }
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,32 +278,42 @@
                 <div class="row">
                         <div class="col-md-12 col-xs-12">
                                 <div class="white-box">
-                                    <form class="form-horizontal form-material">
+                                    <form id = "car_register"
+                                    action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" 
+                                    method = "post"
+                                    enctype="multipart/form-data" 
+                                    class="form-horizontal form-material">
                                             <div class="form-group">
                                                     <label class="col-md-12">Car Image</label>
                                                     <div class="col-md-12">
                                                         <input type="file" name="car_image"> </div>
+                                                        <p><?php echo isset($error['car_image']) ? $error['car_image'] : '' ?></p>
                                                 </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Car Name</label>
                                             <div class="col-md-12">
-                                                <input type="text" placeholder="Johnathan Doe" name="car_name" class="form-control form-control-line"> </div>
-                                        </div>
+                                                <input type="text" placeholder="Toyota" name="car_name" class="form-control form-control-line" value="<?php echo isset($_POST['car_name']) ? $_POST['car_name'] : ''; ?>"> </div>
+                                                <p><?php echo isset($error['car_name']) ? $error['car_name'] : '' ?></p>
+                                            </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Car Brand</label>
                                             <div class="col-md-12">
-                                                <input type="text" placeholder="Audi A6" class="form-control" name="car_brand" form-control-line"> </div>
+                                                <input type="text" placeholder="Camry" name="car_brand" class="form-control form-control-line" value="<?php echo isset($_POST['car_brand']) ? $_POST['car_brand'] : ''; ?>"> 
+                                            </div>
+                                                <p><?php echo isset($error['car_brand']) ? $error['car_brand'] : '' ?></p>
                                         </div>
                                         <div class="form-group">
                                                 <label class="col-md-12">Plate Number</label>
                                                 <div class="col-md-12">
-                                                    <input type="text" placeholder="WRT-123-DDJ" name="car_plate_no" class="form-control form-control-line"> </div>
-                                            </div>
+                                                    <input type="text" placeholder="WRT-123-DDJ" name="car_plate_no" class="form-control form-control-line" value="<?php echo isset($_POST['car_plate_no']) ? $_POST['car_plate_no'] : ''; ?>"> </div>
+                                                    <p><?php echo isset($error['car_plate_no']) ? $error['car_plate_no'] : '' ?></p>
+                                                </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Chasis Number</label>
                                             <div class="col-md-12">
-                                                <input type="text" placeholder="123456789" ame="car_chassis" class="form-control form-control-line"> </div>
-                                        </div>
+                                                <input type="text" placeholder="123456789" name="car_chassis" value="<?php echo isset($_POST['car_chassis']) ? $_POST['car_chassis'] : ''; ?>" class="form-control form-control-line"> </div>
+                                            <p><?php echo isset($error['car_chassis']) ? $error['car_chassis'] : '' ?></p>
+                                            </div>
                     
                                         <div class="form-group">
                                                 <label class="col-md-12">Car Status</label>
@@ -158,7 +333,7 @@
                                        
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button class="btn btn-success">Register</button>
+                                                <input type="submit" name="create" value="create" class="btn btn-success">
                                             </div>
                                         </div>
                                     </form>
