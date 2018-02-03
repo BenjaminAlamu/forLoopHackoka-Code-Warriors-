@@ -131,7 +131,7 @@
                 <div class="row">
                     <div class="col-md-4 col-xs-12">
                         <div class="white-box">
-                            <div class="user-bg"> <?php echo $row['car_image'] ?>
+                            <div class="user-bg"> <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['image'] ).'"/>'; ?>
                                 <div class="overlay-box">
                                     <div class="user-content">
                                         <h4 class="text-white"><?php echo $row['car_plate_no'] ?></h4>

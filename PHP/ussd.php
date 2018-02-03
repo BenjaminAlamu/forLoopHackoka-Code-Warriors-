@@ -27,7 +27,7 @@ else if ( $text != "" ) {
 
     if($car_response != null){
         foreach($car_response as $resp){
-            $response .= $resp['car_status'];
+            $response .= "END ". $resp['car_status'];
         }
     }
     else{
