@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="CSS/bootstrap.min.css">
+        <link rel="stylesheet" href="CSS/font-awesome.min.css">
+        <link rel="stylesheet" href="CSS/owl.carousel.css">
+        <link rel="stylesheet" href="CSS/animate.css">
+        <link rel="stylesheet" href="CSS/main.css">
+         <link rel="stylesheet" href="CSS/text.css">
+        <link rel="stylesheet" href="CSS/responsive.css">
+        <link rel="stylesheet" href="CSS/hover.css">
+    </head>
+    <body id="body">
+          	<div id="preloader">
+    		<div class="book">
+    		  <div class="book__page"></div>
+    		  <div class="book__page"></div>
+    		  <div class="book__page"></div>
+    		</div>
+    	</div>
+	    <div class="navbar-default navbar-fixed-top" id="navigation">
+	        <div class="container">
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+	                    <span class="sr-only"></span>
+	                    <span class="l-lite">Menu</span>
+	                   
+	                </button>
+	                <a class="navbar-brand" href="#">
+                       <img src="IMG/CarSecureLogo.png" width="150" height="30">
+	                </a>
+	            </div>
+	            <nav class="collapse navbar-collapse" id="navbar">
+	                <ul class="nav navbar-nav navbar-right" id="top-nav">
+	                    <li><a href="#"> <i class="fa fa-info-circle"></i> About Us</a></li>
+	                   <!-- <li class="li">
+                            <a href="#" class="color dropdown" data-toggle="dropdown"> <i class="fa fa-user col"></i><span> Log In or Sign Up</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Log In</a></li>
+                                <li><a href="#">Sign Up</a></li>
+                            </ul>
 
+                        </li>-->
+                          <li class="dropdown color">                            
+                            <a href="#" class="dropdown-toggle l_click" data-toggle="dropdown"><i class="fa fa-user l-lite"></i>  <span class="l-lite">Log in or Sign up <span class="caret opacity-none"></span></span></a>
+                              <ul class="dropdown-menu l_menu">
+                                  <li class="l_items" data-toggle="modal" data-target="#popupwindow1_1"><a href="#" class="k_pad">Sign Up</a></li>
+                                  <li class="hover1 l_items l-item2" data-toggle="modal" data-target="#popupwindow1_2"><a href="#" class="k_pad">Log In</a></li>
+                              </ul>
+                              </li>
+	                </ul>
+	            </nav>
+	        </div>
+	    </div>
+
+	    <section id="hero-area">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-6">
+	                    <div class="block">
+	                        <h1 class="wow fadeInDown">Authenticate a Vehicle</h1>
+	                        <p class="wow fadeInDown" data-wow-delay="0.3s">Using the latest chassis technology, we protect your vehicle</p>
+	                        <div class="wow fadeInDown" data-wow-delay="0.3s">
+	                        	  <div id="l_up" class="js-location-search location-search location-search-main-page  location_city_area">
+    <div class="location-search-inner" id="l-ji">
+        <form name="" method="get" action="/location-suggestions" role="form" class="form-vertical" novalidate="novalidate" autocomplete="off">
+
+                    <div class="area" id="l_area">
+    <label for="area" class="required">Select for Chassis Number</label>
+    <input type="text" id="l-border" name="area" required="required" data-prefill="location.areaName" class="form-control" placeholder="Search for Chassis Number" />
+    <span id="area-not-selected-error" class="help-inline">
+        
+    </span>
+</div>
+  <div class="find-food" id="l_areaa">
+    <button type="submit" id="button" name="button" class="btn btn-primary btn-block">Show results</button>
+</div>
+        <input type="hidden" id="area_id" name="area_id" data-prefill="location.areaId" /><input type="hidden" id="pickup" name="pickup" /><input type="hidden" id="sort" name="sort" /><input type="hidden" id="tracking_id" name="tracking_id" data-prefill="location.tracking_id" /></form>
+    </div>
+</div>
+    </div>
+	                        </div>
+	                    </div>
+	                </div>
+	               <!-- <div class="col-md-4 wow zoomIn" id ="md">
+	                    <div class="block">
+	                        <div class="counter text-center">
+	                            <ul id="countdown_dashboard">
+	                                <li>
+	                                    <div class="dash days_dash">
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <span class="dash_title">Days</span>
+	                                    </div>
+	                                </li>
+	                                <li>
+	                                    <div class="dash hours_dash">
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <span class="dash_title">Hours</span>
+	                                    </div>
+	                                </li>
+	                                <li>
+	                                    <div class="dash minutes_dash">
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <span class="dash_title">Minutes</span>
+	                                    </div>
+	                                </li>
+	                                <li>
+	                                    <div class="dash seconds_dash">
+	                                        <div class="digit">0</div>
+	                                        <div class="digit">0</div>
+	                                        <span class="dash_title">Seconds</span>
+	                                    </div>
+	                                </li>
+	                            </ul>
+	                        </div>
+	                    </div>-->
+	                </div>
+	            </div>
+	        </div>
+	    </section>
+          <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="js/jquery.lwtCountdown-1.0.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.nav.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
